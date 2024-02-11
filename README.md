@@ -16,7 +16,7 @@ Copy the following files into the project folder:
 Inside the project folder, create a sub-folder named `1_Data`.
 
 ### Step 4: Copy Sample Files to 1_Data
-Copy the sample files into the `1_Data` folder. Make sure to use underscores (_) instead of hyphens (-) in file names. For example, replace '-' with '_' (e.g., `Tumor-1_R1.fq.gz` --> `Tumor_1_R1.fq.gz`).
+Copy the sample files into the `1_Data` folder. If in case you want to use characters in sample name make sure to use underscores (_) instead of hyphens (-) in file names. For example, replace '-' with '_' (e.g., `Tumor-1_R1.fq.gz` --> `Tumor_1_R1.fq.gz`).
 
 ### Step 5: Create "Master_file.txt"
 Create a file named `Master_file.txt` in the project folder. This file should specify the combinations and replicates. Refer to the example file provided for better clarity.
