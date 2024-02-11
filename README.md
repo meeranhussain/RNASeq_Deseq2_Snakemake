@@ -1,5 +1,5 @@
 # RNA_seq-analysis
-## Steps to Run RNA_SEQ STAR-DeSeq2 pipeline Snakemake File
+## Steps to run RNA_SEQ STAR-DeSeq2 pipeline snakemake file
 
 ### Step 1: Make a Project Folder with Project_ID
 Create a project folder and give it a meaningful Project_ID.
