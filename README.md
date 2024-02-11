@@ -1,5 +1,5 @@
 # RNA_seq-analysis
-## Steps to Run RNA_SEQ Snakemake File
+## Steps to Run RNA_SEQ STAR-DeSeq2 pipeline Snakemake File
 
 ### Step 1: Make a Project Folder with Project_ID
 Create a project folder and give it a meaningful Project_ID.
@@ -24,7 +24,7 @@ Create a file named `Master_file.txt` in the project folder. This file should sp
 ### Step 6: Use Config File to Add Additional Information
 Utilize the `config.yaml` file to add any additional information required for the workflow.
 
-#### Config.yaml Content for RNA_SEQ Snakemake Workflow
+#### Config.yaml Content for RNA_SEQ Snakemake Workflow (Example file)
 
 ```yaml
 #### Enter organism name (Scientific name)
@@ -39,10 +39,13 @@ threads: "40"
 #### Specify Combinations using "+" between combinations
 combinations: "control_Tumor + Tumor_control"
 
-#### Path to indexed reference folder
+#### Path to indexed reference folder (Reference indexing command provided below)
 reference: "</Path/to/indexed/reference/folder>"
 ```
-
+##### Genome indexing using STAR
+```bash
+STAR --runMode genomeGenerate --genomeDir {index_dir_name} --genomeFastaFiles {path to ".fasta" file} --sjdbGTFfile {path to ".gtf" file} --sjdbOverhang 100 --runThreadN 10
+```
 ### Step 7: Open Terminal in Project Folder
 Navigate to the project folder in your terminal/command prompt.
 
@@ -50,4 +53,4 @@ Navigate to the project folder in your terminal/command prompt.
 Type the following command in the terminal:
 ```bash
 snakemake --configfile=config.yaml --cores 5
-
+```
