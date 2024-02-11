@@ -1,0 +1,14 @@
+#Enter organism name (Scientific name)
+org : "Homo sapiens"
+
+#Enter Kegg organism code
+org_code : "hsa"
+
+#Specify Number of threads
+threads : "40"
+
+#Specify Combinations using "+" between combinations
+combinations : "control_Tumor+Tumor_control"
+
+#Path to indexed reference folder
+reference : "/reference/hg19/ref_genome.fasta"

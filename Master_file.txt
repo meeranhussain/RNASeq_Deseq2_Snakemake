@@ -1,0 +1,5 @@
+sample_name	condition	
+Sample_M1	control
+Sample_M6	control
+Sample_M3	Sample1
+Sample_M4	Sample1
