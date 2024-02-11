@@ -24,6 +24,25 @@ Create a file named `Master_file.txt` in the project folder. This file should sp
 ### Step 6: Use Config File to Add Additional Information
 Utilize the `config.yaml` file to add any additional information required for the workflow.
 
+#### Config.yaml Content for RNA_SEQ Snakemake Workflow
+
+```yaml
+#### Enter organism name (Scientific name)
+org: "Homo sapiens"
+
+#### Enter Kegg organism code
+org_code: "hsa"
+
+#### Specify Number of threads
+threads: "40"
+
+#### Specify Combinations using "+" between combinations
+combinations: "control_Tumor + Tumor_control"
+
+#### Path to indexed reference folder
+reference: "</Path/to/indexed/reference/folder>"
+```
+
 ### Step 7: Open Terminal in Project Folder
 Navigate to the project folder in your terminal/command prompt.
 
