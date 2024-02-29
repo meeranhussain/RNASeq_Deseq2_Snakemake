@@ -1,8 +1,7 @@
 # RNA_seq-analysis
 This workflow is for differential gene expression study for the samples with replicates
 ## WORKFLOW
-***Perform quality check on fastq file using FASTQC/MULTIQC
-
+**Perform quality check on fastq file using FASTQC/MULTIQC**
 FASTQC:
 ```bash
 fastqc *.fastq -o <output_directory>
@@ -13,7 +12,7 @@ MULTIQC:
 ```bash
 multiqc <fastqc_results_directory>/
 ```
-***Quality control using Trimgalore
+**Quality control using Trimgalore**
 ```bash
 trim_galore -q 20 --paired --fastqc --cores <number_of_threads> <input_R1_fq.gz> <input_R2.fq.gz> -o <output_directory>
 ```
