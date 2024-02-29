@@ -2,12 +2,14 @@
 This workflow is for differential gene expression study for the samples with replicates
 ## WORKFLOW
 ** Perform quality check on fastq file using FASTQC/MULTIQC
-```bash
 FASTQC:
+```bash
 fastqc *.fastq -o <output_directory>
 -o : Directory to save output files (file must be created)
 "*.fastq" represents to select all files with the ".fastq" extension in the working directory
+```
 MULTIQC:
+```bash
 multiqc <fastqc_results_directory>/
 ```
 ** Quality control using Trimgalore
