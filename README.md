@@ -5,19 +5,36 @@ This workflow is for differential gene expression study for the samples with rep
 FASTQC:
 ```bash
 fastqc *.fastq -o <output_directory>
+```
 -o : Directory to save output files (file must be created)
 "*.fastq" represents to select all files with the ".fastq" extension in the working directory
-```
+
 MULTIQC:
 ```bash
 multiqc <fastqc_results_directory>/
 ```
+
 **Quality control using Trimgalore**
 ```bash
 trim_galore -q 20 --paired --fastqc --cores <number_of_threads> <input_R1_fq.gz> <input_R2.fq.gz> -o <output_directory>
 ```
 
-## Steps to run RNA_SEQ STAR-DeSeq2 pipeline snakemake file
+**Indexing reference file**
+```bash
+STAR --runMode genomeGenerate --genomeDir <index_dir_name> --genomeFastaFiles <path to ".fasta" file> --sjdbGTFfile <path to ".gtf" file> --sjdbOverhang 100 --runThreadN 10
+```
+
+**Alignment using STAR**
+```bash
+STAR --genomeDir <index_dir_name> --runThreadN <number_of_threads> --outSAMtype BAM SortedByCoordinate --readFilesCommand zcat --readFilesIn <input_R1.fastq.gz> <input_R2.fastq.gz>  --outFileNamePrefix <output_filename>
+```
+
+**Quantification using Feature count**
+```bash
+featureCounts -p -T <number_of_threads> --verbose -t exon -g gene_id -a <path to ".gtf" file> -o <out_count_file_name> <List of BAM files as Input files>
+```
+
+# Steps to run RNA_SEQ STAR-DeSeq2 pipeline snakemake file
 ### Step 1: Make a Project Folder with Project_ID
 Create a project folder and give it a meaningful Project_ID.
 
