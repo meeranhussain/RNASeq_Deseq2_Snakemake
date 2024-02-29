@@ -2,6 +2,7 @@
 This workflow is for differential gene expression study for the samples with replicates
 ## WORKFLOW
 ** Perform quality check on fastq file using FASTQC/MULTIQC
+
 FASTQC:
 ```bash
 fastqc *.fastq -o <output_directory>
