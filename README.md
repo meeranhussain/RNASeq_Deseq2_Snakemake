@@ -1,7 +1,21 @@
 # RNA_seq-analysis
-This workflow is for differential gene expression study with replicate samples
-## Steps to run RNA_SEQ STAR-DeSeq2 pipeline snakemake file
+This workflow is for differential gene expression study for the samples with replicates
+## WORKFLOW
+** Perform quality check on fastq file using FASTQC/MULTIQC
+```bash
+FASTQC:
+fastqc *.fastq -o <output_directory>
+-o : Directory to save output files (file must be created)
+"*.fastq" represents to select all files with the ".fastq" extension in the working directory
+MULTIQC:
+multiqc <fastqc_results_directory>/
+```
+** Quality control using Trimgalore
+```bash
+trim_galore -q 20 --paired --fastqc --cores <number_of_threads> <input_R1_fq.gz> <input_R2.fq.gz> -o <output_directory>
+```
 
+## Steps to run RNA_SEQ STAR-DeSeq2 pipeline snakemake file
 ### Step 1: Make a Project Folder with Project_ID
 Create a project folder and give it a meaningful Project_ID.
 
