@@ -1,7 +1,7 @@
 # RNA_seq-analysis
 This workflow is for differential gene expression study for the samples with replicates
 ## WORKFLOW
-**Perform quality check on fastq file using FASTQC/MULTIQC**
+**1. Perform quality check on fastq file using FASTQC/MULTIQC**
 FASTQC:
 ```bash
 fastqc *.fastq -o <output_directory>
@@ -14,22 +14,22 @@ MULTIQC:
 multiqc <fastqc_results_directory>/
 ```
 
-**Quality control using Trimgalore**
+**2. Quality control using Trimgalore**
 ```bash
 trim_galore -q 20 --paired --fastqc --cores <number_of_threads> <input_R1_fq.gz> <input_R2.fq.gz> -o <output_directory>
 ```
 
-**Indexing reference file**
+**3. Indexing reference file**
 ```bash
 STAR --runMode genomeGenerate --genomeDir <index_dir_name> --genomeFastaFiles <path to ".fasta" file> --sjdbGTFfile <path to ".gtf" file> --sjdbOverhang 100 --runThreadN 10
 ```
 
-**Alignment using STAR**
+**4. Alignment using STAR**
 ```bash
 STAR --genomeDir <index_dir_name> --runThreadN <number_of_threads> --outSAMtype BAM SortedByCoordinate --readFilesCommand zcat --readFilesIn <input_R1.fastq.gz> <input_R2.fastq.gz>  --outFileNamePrefix <output_filename>
 ```
 
-**Quantification using Feature count**
+**5. Read Quantification using Feature count**
 ```bash
 featureCounts -p -T <number_of_threads> --verbose -t exon -g gene_id -a <path to ".gtf" file> -o <out_count_file_name> <List of BAM files as Input files>
 ```
