@@ -1,6 +1,6 @@
 # RNA_seq-analysis
 This workflow is for differential gene expression study for the samples with replicates
-## WORKFLOW
+## FOR STAND ALONE RUN (INDIVIDUAL COMMANDS)
 **1. Perform quality check on fastq file using FASTQC/MULTIQC**
 
 FASTQC:
@@ -35,7 +35,7 @@ STAR --genomeDir <index_dir_name> --runThreadN <number_of_threads> --outSAMtype 
 featureCounts -p -T <number_of_threads> --verbose -t exon -g gene_id -a <path to ".gtf" file> -o <out_count_file_name> <List of BAM files as Input files>
 ```
 
-# Steps to run RNA_SEQ STAR-DeSeq2 pipeline snakemake file
+# FOR SNAKEMAKE RUN
 ### Step 1: Make a Project Folder with Project_ID
 Create a project folder and give it a meaningful Project_ID.
 
